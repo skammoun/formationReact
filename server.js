@@ -1,5 +1,9 @@
 var express=require("express")
 var user = require("./router/user")
+var product = require("./router/product")
+
+var db = require("./models/db")
+
 var app=express();
 
 app.use("/users",user)
