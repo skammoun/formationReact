@@ -31,4 +31,13 @@ router.post("/add",function(req,res){
   })
 })
 
+router.put("/update/:id",function(req,res){
+  UserModel.findByIdAndUpdate(req.params.id,{firstName:req.body.firstName,lastName:req.body.lastName},function(err){
+    if(err){
+      res.send({status:"no",msg:err})
+    }else{
+      res.send({status:"yes",msg:"ok"})
+    }
+  })
+})
 module.exports=router;
