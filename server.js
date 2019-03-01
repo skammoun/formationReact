@@ -1,10 +1,13 @@
 var express=require("express")
 var user = require("./router/user")
 var product = require("./router/product")
+var bodyParser = require("body-parser")
 
 var db = require("./models/db")
 
 var app=express();
+
+app.use(bodyParser.json())
 
 app.use("/users",user)
 

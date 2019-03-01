@@ -3,3 +3,5 @@ npm i mongoose --save
 mongod --dbpath data/db
 
 nodemon server.js
+
+npm i body-parse --save

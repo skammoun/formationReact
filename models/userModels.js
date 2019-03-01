@@ -4,17 +4,17 @@ var schema=mongoose.Schema;
 
 var SchemaModel=new schema({
   firstName:{
-    type:string,
+    type:String,
     trim:true
   },lastName:{
-    type:string,
+    type:String,
     trim:true
   },phone:{
-    type:string,
+    type:String,
     trim:true
   }
 })
 
-var UserModel=mongoose.models("Users",SchemaModel)
+var UserModel=mongoose.model("Users",SchemaModel)
 
 module.exports=UserModel
