@@ -1,5 +1,5 @@
-var express=require("express")
-var CategoryModel=require("../models/productModels.js")
+var express=require("express")  
+var CategoryModel=require("../models/categoryModels.js")
 var router = express.Router()
 
 router.get("/",function(req,res){
@@ -21,9 +21,8 @@ router.get("/all",function(req,res){
 })
 
 router.post("/add",function(req,res){
-
-  var prod = new ProductModel({name:req.body.name,price:req.body.price,category:req.body.category})
-  prod.save(function(err){
+  var user = new UserModel({name:req.body.name,description:req.body.description})
+  user.save(function(err){
     if(err){
       res.send({status:"no",msg:err})
     }else{
@@ -33,7 +32,7 @@ router.post("/add",function(req,res){
 })
 
 router.put("/update/:id",function(req,res){
-  UserModel.findByIdAndUpdate(req.params.id,{name:req.body.name,price:req.body.price},function(err){
+  UserModel.findByIdAndUpdate(req.params.id,{name:req.body.name,description:req.body.description},function(err){
     if(err){
       res.send({status:"no",msg:err})
     }else{

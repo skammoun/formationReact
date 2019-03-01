@@ -3,18 +3,15 @@ var mongoose=require("mongoose")
 var Schema=mongoose.Schema;
 
 var SchemaModel=new Schema({
-  firstName:{
+  name:{
     type:String,
     trim:true
-  },lastName:{
-    type:String,
-    trim:true
-  },phone:{
+  },description:{
     type:String,
     trim:true
   }
 })
 
-var UserModel=mongoose.model("Users",SchemaModel)
+var CategoryModel=mongoose.model("Category",SchemaModel)
 
-module.exports=UserModel
+module.exports=CategoryModel

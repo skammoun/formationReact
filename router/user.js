@@ -40,4 +40,15 @@ router.put("/update/:id",function(req,res){
     }
   })
 })
+
+router.delete("/remove/:id",function(req,res){
+  UserModel.remove({_id:req.params.id},function(err){
+    if(err){
+      res.send({status:"no",msg:err})
+    }else{
+      res.send({status:"yes",msg:"ok"})
+    }
+  })
+})
+
 module.exports=router;
