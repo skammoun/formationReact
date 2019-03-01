@@ -1,5 +1,5 @@
 var express=require("express")
-var CategoryModel=require("../models/orderModels.js")
+var OrderModel=require("../models/orderModels.js")
 var router = express.Router()
 
 router.get("/",function(req,res){
@@ -11,7 +11,7 @@ router.get("/home",function(req,res){
 })
 
 router.get("/all",function(req,res){
-  UserModel.find({},function(err,result){
+  OrderModel.find({},function(err,result){
     if(err){
       res.send({data:{},state:"no",msg:err})
     }else{
@@ -23,26 +23,6 @@ router.get("/all",function(req,res){
 router.post("/add",function(req,res){
   var order = new OrderModel({name:req.body.name,description:req.body.description,user:req.body.user,prods:req.body.prods})
   order.save(function(err){
-    if(err){
-      res.send({status:"no",msg:err})
-    }else{
-      res.send({status:"yes",msg:"ok"})
-    }
-  })
-})
-
-router.put("/update/:id",function(req,res){
-  UserModel.findByIdAndUpdate(req.params.id,{name:req.body.name,description:req.body.description},function(err){
-    if(err){
-      res.send({status:"no",msg:err})
-    }else{
-      res.send({status:"yes",msg:"ok"})
-    }
-  })
-})
-
-router.delete("/remove/:id",function(req,res){
-  UserModel.remove({_id:req.params.id},function(err){
     if(err){
       res.send({status:"no",msg:err})
     }else{

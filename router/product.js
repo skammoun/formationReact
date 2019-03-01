@@ -1,5 +1,5 @@
 var express=require("express")
-var CategoryModel=require("../models/productModels.js")
+var ProductModel=require("../models/productModels.js")
 var router = express.Router()
 
 router.get("/",function(req,res){
@@ -11,7 +11,7 @@ router.get("/home",function(req,res){
 })
 
 router.get("/all",function(req,res){
-  UserModel.find({},function(err,result){
+  ProductModel.find({},function(err,result){
     if(err){
       res.send({data:{},state:"no",msg:err})
     }else{
